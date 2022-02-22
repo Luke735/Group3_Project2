@@ -29,6 +29,8 @@ public class evalPostF {
 	                if (right == 0) { throw new IllegalArgumentException("Divide by zero."); }
 	                stack.push(left / right);
 	            }
+		    
+		    if(token.equals("^")) {stack.push((int) Math.pow(left, right));}
 	        }
 	    }
 	    scanner.close();
