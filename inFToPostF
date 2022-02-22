@@ -97,6 +97,8 @@ public class inFToPostF {
 	public static int precedence(String operator) {
         if (operator.equals("*") || operator.equals("/")) { return 12; }
         if (operator.equals("+") || operator.equals("-")) { return 11; }
+	if (operator.equals("^")) {return 7;}
+
         throw new IllegalArgumentException(String.format("Operator %s is not supported.", operator));
     }  // Time complexity: O(n)
 	
