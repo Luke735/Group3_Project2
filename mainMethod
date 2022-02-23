@@ -37,7 +37,8 @@ public class mainMethod {
 				StringBuilder e = new StringBuilder();
 				for (int i = 0; i < str.length(); i++) {
 					if (str.charAt(i) == '|') { e.append("||"); }
-					else { e.append(str.charAt(i)); }
+					else if(str.charAt(i) == '&'){e.append("&&");}
+					else{e.append(str.charAt(i)); }
 				}
 				System.out.println("	  " + e.toString());
 				System.out.println("EVALUATED:");
