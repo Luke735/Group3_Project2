@@ -35,6 +35,9 @@ public class evalPostF {
 	                if (right == 0) { throw new IllegalArgumentException("Divide by zero."); }
 	                stack.push(left / right);
 	            }
+		    int trueFalse = 0;
+	            if(token.equals(">")) {stack.push((Integer) (left > right ? trueFalse = 1 : trueFalse));}
+	            if(token.equals("<")) {stack.push((Integer) (left < right ? trueFalse = 1 : trueFalse));}
 	        }
 	    }
 	    scanner.close();
