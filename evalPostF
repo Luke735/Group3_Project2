@@ -42,8 +42,13 @@ public class evalPostF {
 	                stack.push(left / right);
 	            }
 		    
-	            if(token.equals(">")) {stack.push((Integer) (left > right ? 1 : 0));}
-	            if(token.equals("<")) {stack.push((Integer) (left < right ? 1 : 0));}
+		    if(token.equals("!")) {
+	            	if(left != right) {stack.push(0);
+	            		}else {stack.push(1);}
+	            }
+		    
+	            if(token.equals(">")) {stack.push(left > right ? 1 : 0);}
+	            if(token.equals("<")) {stack.push(left < right ? 1 : 0);}
 	        }
 	    }
 	    scanner.close();
