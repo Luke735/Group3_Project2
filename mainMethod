@@ -12,9 +12,9 @@ public class mainMethod {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(myFile));
 		
 		//TEST INFIX EXPRESSIONS GO HERE
-	    writer.write("2 - 3 * ( ( 2 - 1 ) / 5 )\n");
-	    writer.write("2 - 3 * ( ( 2 - 1 ) / 5 )\n");
-	    writer.write("2 - 3 * ( ( 2 - 1 ) / 5 )\n");
+	    writer.write("2^6\n");
+	    writer.write("2-3*((30-10)/5)\n");
+	    writer.write("1 || 2 + 5\n");
 	    writer.write("2 - 3 * ( ( 2 - 1 ) / 5 )\n");
 	    writer.close();
 		}
@@ -33,9 +33,15 @@ public class mainMethod {
 				System.out.println("INFIX:");
 				System.out.println("	  " + lineStr);
 				System.out.println("POSTFIX:");
-				System.out.println("	  " + inFToPostF.infixToPostfix(lineStr));
+				String str = inFToPostF.infixToPostfix(lineStr + " ");
+				StringBuilder e = new StringBuilder();
+				for (int i = 0; i < str.length(); i++) {
+					if (str.charAt(i) == '|') { e.append("||"); }
+					else { e.append(str.charAt(i)); }
+				}
+				System.out.println("	  " + e.toString());
 				System.out.println("EVALUATED:");
-				System.out.println("	  " + evalPostF.evaluate(inFToPostF.infixToPostfix(lineStr)));
+				System.out.println("	  " + evalPostF.evaluate(inFToPostF.infixToPostfix(lineStr + " ")));
 				System.out.println();
 				
 				lineStr = reader.readLine();
