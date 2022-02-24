@@ -53,6 +53,28 @@ public class inFToPostF {
 	                	stack.push("&"); 
 	                	i++;
 	                	}
+	                else if(infixExp.charAt(i) == '!') {
+	                	stack.push("!=");
+	                	i++;
+	                }
+	                else if(infixExp.charAt(i) == '>') { 
+	                	if(infixExp.charAt(i+1) == '=') { //checking if there is a >= operand
+	                		stack.push(">=");
+	                		i++;
+	                	} else { // pushes greater than if not
+	                		stack.push(">");
+	                		i++;
+	                	}//end else
+	                }
+	                else if(infixExp.charAt(i) == '<') {
+	                	if(infixExp.charAt(i+1) == '=') {//checking if there is a <= operand
+	                		stack.push("<=");
+	                		i++;
+	                	} else {
+	                		stack.push("<");
+	                		i++;
+	                	}
+	                }
 	                else {
 	                	stack.push(Character.toString(infixExp.charAt(i)));
 	                }
@@ -60,7 +82,7 @@ public class inFToPostF {
 	            }
         	}     
 //            System.out.println(postfixExp.toString() + " postfixExp");
-        }//end for
+        }//end for loop
         
         // Pop the remaining operators from the stack and append them to the post-fix expression string.
         while (!stack.isEmpty()) { postfixExp.append(stack.pop()).append(' '); }
