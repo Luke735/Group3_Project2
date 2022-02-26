@@ -57,21 +57,21 @@ public class inFToPostF {
 	                	stack.push("!=");
 	                	i++;
 	                }
-	                else if(infixExp.charAt(i) == '>') { 
-	                	if(infixExp.charAt(i+1) == '=') { //checking if there is a >= operand
-	                		stack.push(">=");
-	                		i++;
-	                	} else { // pushes greater than if not
+	                else if(infixExp.charAt(i) == '>') {
+	                	if(infixExp.charAt(i+1) != '=') { //checking if there is a >= operand
 	                		stack.push(">");
 	                		i++;
-	                	}//end else
+	                	} else { // pushes greater than if not
+	                		stack.push(">=");
+	                		i++;
+	                	}//end else 
 	                }
 	                else if(infixExp.charAt(i) == '<') {
-	                	if(infixExp.charAt(i+1) == '=') {//checking if there is a <= operand
-	                		stack.push("<=");
+	                	if(infixExp.charAt(i+1) != '=') {//checking if there is a <= operand
+	                		stack.push("<");
 	                		i++;
 	                	} else {
-	                		stack.push("<");
+	                		stack.push("<=");
 	                		i++;
 	                	}
 	                }
