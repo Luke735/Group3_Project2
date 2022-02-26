@@ -54,7 +54,7 @@ public class inFToPostF {
 	                	i++;
 	                	}
 	                else if(infixExp.charAt(i) == '!') {
-	                	stack.push("!=");
+	                	stack.push("!");
 	                	i++;
 	                }
 	                else if(infixExp.charAt(i) == '>') {
