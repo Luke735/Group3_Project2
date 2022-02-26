@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.math.*;
 public class evalPostF {
 
-	
 	/** Evaluates a postfix expression.
     @param postfixExp: a postfix expression with integer operands
     @return: the evaluation result
@@ -27,6 +26,7 @@ public class evalPostF {
 	            if (token.equals("-")) { stack.push(left - right); }
 	            if (token.equals("*")) { stack.push(left * right); }
 	            if (token.equals("^")) { stack.push((int)(Math.pow(left, right))); }
+		    if(token.equals("%")) { stack.push(left % right); }
 	            if (token.equals("|")) {
 	            	if (left == 0 && right == 0) { stack.push(0); }
 	            	else { stack.push(1); }
@@ -56,6 +56,4 @@ public class evalPostF {
 	    return stack.peek();
 	}  // Time complexity: O(n)
 	
-	
 }//end class
-
