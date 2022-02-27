@@ -11,9 +11,24 @@ public class mainMethod {
 		myFile.createNewFile();
 		BufferedWriter writer = new BufferedWriter(new FileWriter(myFile));
 		
-		//TEST INFIX EXPRESSIONS GO HERE
+	    //Test expressions
 	    writer.write("2-3*((30-10)/5)\n");
 	    writer.write("2 - 3 * ( ( 2 - 1 ) / 5 )\n");
+	    writer.write("1 == 1\n"); // 1
+	    writer.write("1 == 0\n"); // 0
+	    writer.write("1 != 2\n"); // 1
+	    writer.write("1 != 1\n"); // 0
+	    writer.write("10 > 5\n"); // 1
+	    writer.write("5 > 10\n"); // 0
+	    writer.write("10 < 5\n"); // 0
+	    writer.write("5 < 10\n"); // 1
+	    writer.write("10 >= 10\n"); // 1
+	    writer.write("10 >= 11\n"); // 0
+	    writer.write("10 && 10\n"); // 1
+	    writer.write("5 && 0\n"); // 0
+	    writer.write("1 || 0\n"); // 1
+	    writer.write("0 || 0\n"); // 0
+	    
 	    writer.close();
 		}
 		catch (IOException e) {
