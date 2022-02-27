@@ -45,46 +45,52 @@ public class inFToPostF {
 	                }
 	                
 	                // Push the current operator onto the stack.
-	                if (infixExp.charAt(i) == '|') { 
+	                /* If the current operator is two characters long, we need special code to recognize it,
+	                   either by skipping the char after the first one is recognized (| is guaranteed to be follow by another |, so
+	                   use | to represent || and skip the second |) or by using a different symbol to recognize it (< can be < or <=, if it
+	                   is <=, use # to represent it)
+	                   We increment i to skip the next character, if the next character does in fact make it a two character long operator
+	                 */
+	                if (infixExp.charAt(i) == '>') { 
+	                	i++;
+	                	if (infixExp.charAt(i) == '=') { stack.push("#"); }
+	                	else { 
+	                		stack.push(">");
+	                		i--;
+	                	}
+	            		
+	            	}
+	                else if (infixExp.charAt(i) == '<') { 
+	                	i++;
+	                	if (infixExp.charAt(i) == '=') { stack.push("$"); }
+	                	else { 
+	                		stack.push("<");
+	                		i--;
+	                	}
+	            		
+	            	}
+	                else if (infixExp.charAt(i) == '=') { 
+	                	stack.push("=");
+	            		i++;
+	            	}
+	                else if (infixExp.charAt(i) == '!') { 
+	                	stack.push("!");
+	            		i++;
+	            	}
+	                else if (infixExp.charAt(i) == '&') { 
+	                	stack.push("&");
+	            		i++;
+	            	}
+	                else if (infixExp.charAt(i) == '|') { 
 	                	stack.push("|");
 	            		i++;
 	            	}
-	                else if(infixExp.charAt(i) == '&') { 
-	                	stack.push("&"); 
-	                	i++;
-	                	}
-	                else if(infixExp.charAt(i) == '!') {
-	                	stack.push("!");
-	                	i++;
-	                }
-	                else if(infixExp.charAt(i) == '>' && infixExp.charAt(i + 1) == '=') {
-	                	
-	                	stack.push(">=");
-	                	i++;
-	                }
-	                else if(infixExp.charAt(i) =='<' && infixExp.charAt(i + 1) == '=') {
-	                	stack.push("<=");
-	                	i++;
-	                }
-			
-			else if(infixExp.charAt(i) == '=') {
-	                	stack.push("=");
-	                	i++;
-	                }
-			
-			else if(infixExp.charAt(i) == '%') {
-	                	stack.push("%");
-	                	i++;
-	                }
-			
-	                else {
-	                	stack.push(Character.toString(infixExp.charAt(i)));
-	                }
+	                else  { stack.push(Character.toString(infixExp.charAt(i))); }
 	               
 	            }
         	}     
 //            System.out.println(postfixExp.toString() + " postfixExp");
-        }//end for loop
+        }//end for
         
         // Pop the remaining operators from the stack and append them to the post-fix expression string.
         while (!stack.isEmpty()) { postfixExp.append(stack.pop()).append(' '); }
