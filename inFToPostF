@@ -57,23 +57,14 @@ public class inFToPostF {
 	                	stack.push("!");
 	                	i++;
 	                }
-	                else if(infixExp.charAt(i) == '>') {
-	                	if(infixExp.charAt(i+1) != '=') { //checking if there is a >= operand
-	                		stack.push(">");
-	                		i++;
-	                	} else { // pushes greater than if not
-	                		stack.push(">=");
-	                		i++;
-	                	}//end else 
+	                else if(infixExp.charAt(i) == '>' && infixExp.charAt(i + 1) == '=') {
+	                	
+	                	stack.push(">=");
+	                	i++;
 	                }
-	                else if(infixExp.charAt(i) == '<') {
-	                	if(infixExp.charAt(i+1) != '=') {//checking if there is a <= operand
-	                		stack.push("<");
-	                		i++;
-	                	} else {
-	                		stack.push("<=");
-	                		i++;
-	                	}
+	                else if(infixExp.charAt(i) =='<' && infixExp.charAt(i + 1) == '=') {
+	                	stack.push("<=");
+	                	i++;
 	                }
 	                else {
 	                	stack.push(Character.toString(infixExp.charAt(i)));
