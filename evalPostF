@@ -70,17 +70,17 @@ public class evalPostF {
 					}
 				}
 				
-				if(token.equals("=)){stack.push(left == right ? 1:0);}
+				if(token.equals("=")){stack.push(left == right ? 1:0);}
 				
 				if (token.equals(">=")) {
 					stack.push((left >= right ? 1 : 0)); 
-					} 
+				} 
 				if (token.equals("<")) {
 					stack.push((left > right ? 1 : 0));	
 				}
 				if (token.equals("<=")) {
 					stack.push((left <= right ? 1 : 0)); 
-					} 
+				} 
 				if (token.equals("<")) {
 					stack.push((left < right ? 1 : 0));	
 				}
