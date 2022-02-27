@@ -66,6 +66,17 @@ public class inFToPostF {
 	                	stack.push("<=");
 	                	i++;
 	                }
+			
+			else if(infixExp.charAt(i) == '=') {
+	                	stack.push("=");
+	                	i++;
+	                }
+			
+			else if(infixExp.charAt(i) == '%') {
+	                	stack.push("%");
+	                	i++;
+	                }
+			
 	                else {
 	                	stack.push(Character.toString(infixExp.charAt(i)));
 	                }
