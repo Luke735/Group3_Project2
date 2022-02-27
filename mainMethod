@@ -45,6 +45,16 @@ public class mainMethod {
 					if (str.charAt(i) == '|') {e.append("||");}
 					else if(str.charAt(i) == '&') {e.append("&&");}
 					else if(str.charAt(i) == '!') {e.append("!=");}
+					else if(str.charAt(i) == '>') {
+							e.append(">");
+						}
+					else if(str.charAt(i) == '<') {
+						e.append("<");
+					}
+					
+					else if(str.charAt(i) == '=' && str.charAt(i - 1) != '>' && str.charAt(i - 1) != '<' ) {
+					e.append("==");
+					}
 					else{e.append(str.charAt(i)); }
 				}
 				System.out.println("	  " + e.toString());
